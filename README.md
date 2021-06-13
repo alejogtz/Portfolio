@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Alejo Gutiérrez</h1>
-<h3 align="center">/ A passionate frontend developer from India</h3>
+<h3 align="center">/ A passionate backend developer from México</h3>
 
 - 📝 I regularly write articles on [https://alejogtz.github.io/Portfolio](https://alejogtz.github.io/Portfolio)
 
