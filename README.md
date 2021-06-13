@@ -13,7 +13,7 @@
 
 ## Create new Post
 Creating PostsPermalink
-To create a post, add a file to your _posts directory with the following format:
+To create a post, add a file to your `_posts` directory with the following format:
 ```
   YEAR-MONTH-DAY-title.MARKUP
 ```
