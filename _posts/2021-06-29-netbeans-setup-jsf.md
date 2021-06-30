@@ -6,7 +6,7 @@
 
 **Add new Configuration Center**
 
-<details> <summary>Open NetBeans and following next steps</summary>
+<!-- <details> <summary>Open NetBeans and following next steps</summary> -->
 
 
 Go to `Tools > Plugins > Settings` and click on `add` button for fill form with these values:
@@ -22,7 +22,7 @@ After that, check this plugins for being installed on `Avalaible Plugins` tab. (
 
 Plugins will begin to be installed and when it finished just restart IDE and you'll be avalaible for creating JJE projects.
 
-</details>
+<!-- </details> -->
 
 ## Glassfish Installation
 
