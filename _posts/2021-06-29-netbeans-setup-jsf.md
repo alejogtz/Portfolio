@@ -144,6 +144,7 @@ To start the Java DB server from the command line, open a terminal window or com
 	$ asadmin stop-database
 
 > Visit Oracle Java Documentation for more [details](https://docs.oracle.com/javaee/7/tutorial/usingexamples004.htm)
+
 ## Glassfish Configuration With Derby
 
 Move into glassfish admin folder
