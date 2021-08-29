@@ -55,24 +55,60 @@ To modify settings, edit ~/foo.setup and then run:
 
 Done!
 
-
-## Build
-### Build on linux local machine
-
-
-### Build on docker
-
-
 ## Run server
-[](https://ikiwiki.info/tips/dot_cgi)
-[](https://hub.docker.com/r/larsks/thttpd)
 
-Run next command
+To run compiled files on `thttpd` server execute next command.
 
 ```bash
-docker run -v C:\workspace\ikiwiki\public_html\blog:/content -p 8181:80 larsks/thttpd -d /content
+docker run -v /home/$USER/public_html/blog:/content -p 80:80 larsks/thttpd -d /content
 ```
 
+Now, open your web browser on  `chrome.exe  http://$(curl -s ifconfig.me)` or manually open explorer on `http://127.0.01/`
+Done!
+
+### Customizing the wiki
+
+There are lots of things you can configure to customize your wiki. These range from changing the wiki's name, to enabling plugins, to banning users and locking pages.
+
+If you log in as the admin user you configured earlier, and go to your Preferences page, you can click on "Setup" to customize many wiki settings and plugins.
+
+Some settings cannot be configured on the web, for security reasons or because misconfiguring them could break the wiki. To change these settings, you can manually edit the setup file, which is named something like "foo.setup". The file lists all available configuration settings and gives a brief description of each.
+
+After making changes to this file, you need to tell ikiwiki to use it:
+
+```bash
+% ikiwiki --setup foo.setup
+```
+
+Alternatively, you can ask ikiwiki to change settings in the file for you:
+
+```bash
+% ikiwiki --changesetup foo.setup --plugin goodstuff
+```
+
+See [usage](1) for more options.
+
+##Customizing file locations
+
+As a wiki compiler, ikiwiki builds a wiki from files in a source directory, and outputs the files to a destination directory. The source directory is a working copy checked out from the version control system repository.
+
+When you used auto.setup, ikiwiki put the source directory, destination directory, and repository in your home directory, and told you the location of each. Those locations were chosen to work without customization, but you might want to move them to different directories.
+
+First, move the destination directory and repository around.
+
+```bash
+% mv public_html/foo /srv/web/foo.com
+% mv foo.git /srv/git/foo.git
+```
+
+If you moved the repository to a new location, checkouts pointing at the old location won't work, and the easiest way to deal with this is to delete them and re-checkout from the new repository location.
+
+```bash
+% rm -rf foo
+% git clone /srv/git/foo.git
+```
+
+Finally, edit the setup file. Modify the settings for srcdir, destdir, url, cgiurl, cgi_wrapper, git_wrapper, etc to reflect where you moved things. Remember to run ikiwiki --setup after editing the setup file.
 
 ## Resources
 
@@ -80,3 +116,8 @@ docker run -v C:\workspace\ikiwiki\public_html\blog:/content -p 8181:80 larsks/t
 - **Ikiwiki Themes**:
 	- https://ikiwiki.info/themes/
 	- https://ikiwiki.info/theme_market/
+
+
+[1]: https://ikiwiki.info/usage/
+[2]: https://ikiwiki.info/tips/dot_cgi
+[3]: https://hub.docker.com/r/larsks/thttpd
